@@ -1,0 +1,50 @@
+\documentclass[11pt,a4paper]{article}
+
+% --- Езици и кодировки ---
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[bulgarian]{babel}
+
+% --- Стил и оформление ---
+\usepackage{geometry}
+\geometry{margin=2.54cm} % стандартни полета 1 inch
+
+\usepackage{parskip} % разстояние между абзаци, без отстъп
+\setlength{\parindent}{0pt} % нулев отстъп
+
+\usepackage{microtype} % по-добра типография
+\usepackage{hyperref}  % за линкове
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    pdftitle={Биткойн: Директна електронна парична система},
+    pdfauthor={Сатоши Накамото}
+}
+
+% --- Страници ---
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+
+% --- Заглавие ---
+\title{\textbf{Биткойн: Директна електронна парична система}}
+\author{Сатоши Накамото}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Изцяло peer-to-peer версия на електронна парична система би позволила онлайн разплащания между две страни без участието на доверен посредник. Цифровите подписи предоставят част от решението, но основната полза би била в елиминирането на двойното харчене чрез peer-to-peer мрежа.
+\end{abstract}
+
+\section{Въведение}
+
+В интернет-базираната търговия доверието е основа на всяка транзакция. Почти всички разплащания разчитат на доверена трета страна, като банки или платежни системи, за да обработят транзакциите. Въпреки че системата работи достатъчно добре при повечето случаи, тя все пак страда от слабости, присъщи на модела, базиран на доверие...
+
+% (тук продължаваш с превода)
+
+\end{document}
