@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.8.26)  19 MAY 2025 17:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.8.26)  19 MAY 2025 17:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1109,122 +1109,139 @@ File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 LaTeX Font Info:    Font shape `T2A/cmtt/bx/n' in size <9> not available
 (Font)              Font shape `T2A/cmtt/m/n' tried instead on input line 223.
  [7]
-! Misplaced alignment tab character &.
-l.263 ...� да включите текста "P &
-                                                  lt; 0.001" и таблиц...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.295 [2]
+          H. Massias, X.S. Avila, and J.-J. Quisquater, "Design of a secure ...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.296 [3]
+          S. Haber, W.S. Stornetta, "How to time-stamp a digital document," ...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.297 [4]
+          D. Bayer, S. Haber, W.S. Stornetta, "Improving the efficiency and ...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.298 [5]
+          S. Haber, W.S. Stornetta, "Secure names for bit-strings," In Proce...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.299 [6]
+          A. Back, "Hashcash - a denial of service counter-measure," http://...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.300 [7]
+          R.C. Merkle, "Protocols for public key cryptosystems," In Proc. 19...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.301 [8]
+          W. Feller, "An introduction to probability theory and its applicat...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
 
 
-! LaTeX Error: Can be used only in preamble.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.267 \documentclass
-                    {article}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+Overfull \hbox (11.0936pt too wide) in paragraph at lines 294--302
+\T2A/cmr/m/n/10.95 S. Haber, W.S. Stornetta, "Secure names for bit-strings,"In 
+Proceedings of the 4th ACM Conference
+ []
 
 
-! LaTeX Error: Can be used only in preamble.
+Overfull \hbox (46.18126pt too wide) in paragraph at lines 294--302
+\T2A/cmr/m/n/10.95 A. Back, "Hashcash - a denial of service counter-measure,"ht
+tp://www.hashcash.org/papers/hashcash.pdf,
+ []
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.268 \usepackage
-                 {listings}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! LaTeX Error: Can be used only in preamble.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.269 \usepackage
-                 {geometry}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! LaTeX Error: Can be used only in preamble.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.270 \geometry
-               {a4paper, margin=1in}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! LaTeX Error: Can be used only in preamble.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.272 \begin{document}
-                      
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-[8] (main.aux)
+[8] [9] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 68FFC4EAB584615F76879D873E297518;1985.
- )
-(\end occurred inside a group at level 1)
-
-### semi simple group (level 1) entered at line 272 (\begingroup)
-### bottom level 
+(rerunfilecheck)             Checksum: 12E01E4D8306DF00A47B95F746664EF0;2205.
+ ) 
 Here is how much of TeX's memory you used:
- 24294 strings out of 474484
- 441140 string characters out of 5753527
+ 24306 strings out of 474484
+ 441309 string characters out of 5753527
  1975542 words of memory out of 5000000
- 46126 multiletter control sequences out of 15000+600000
+ 46135 multiletter control sequences out of 15000+600000
  572942 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,12n,107p,3241b,1304s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/
-dpi600\latt0900.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t
-2a/dpi600\larm0800.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/l
-h-t2a/dpi600\larm0900.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/l
-h/lh-t2a/dpi600\larm0600.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfou
-r/lh/lh-t2a/dpi600\larm1095.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/lj
-four/lh/lh-t2a/dpi600\labx1440.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk
-/ljfour/lh/lh-t2a/dpi600\larm0700.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts
-/pk/ljfour/lh/lh-t2a/dpi600\larm1000.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fo
-nts/pk/ljfour/lh/lh-t2a/dpi600\labx1000.pk> <C:\Users\Rumi\AppData\Local\MiKTeX
-\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm1200.pk> <C:\Users\Rumi\AppData\Local\MiK
-TeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\labx1728.pk><C:/Program Files/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/publi
-c/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Fil
-es/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on main.pdf (8 pages, 236546 bytes).
+ <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\latt090
+0.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm
+0800.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\l
+arm0900.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi60
+0\larm0600.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dp
+i600\larm1095.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a
+/dpi600\labx1440.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-
+t2a/dpi600\larm0700.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/
+lh-t2a/dpi600\larm1000.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/
+lh/lh-t2a/dpi600\labx1000.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfo
+ur/lh/lh-t2a/dpi600\larm1200.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/l
+jfour/lh/lh-t2a/dpi600\labx1728.pk><C:/Program Files/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C
+:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Fil
+es/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/font
+s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmsy8.pfb>
+Output written on main.pdf (9 pages, 248717 bytes).
 PDF statistics:
- 613 PDF objects out of 1000 (max. 8388607)
- 84 named destinations out of 1000 (max. 500000)
- 93 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 650 PDF objects out of 1000 (max. 8388607)
+ 87 named destinations out of 1000 (max. 500000)
+ 109 words of extra memory for PDF output out of 10000 (max. 10000000)
 

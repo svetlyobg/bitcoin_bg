@@ -259,17 +259,6 @@ $$
 \end{lstlisting}
 
 Решаване на задачата за P по-малко от 0,1\%...
-
-Разбирам, искате да включите текста "P &lt; 0.001" и таблицата с данни като листинг с код в LaTeX, използвайки пакета listings. Ето как можете да го направите:
-
-Фрагмент от код
-
-\documentclass{article}
-\usepackage{listings}
-\usepackage{geometry}
-\geometry{a4paper, margin=1in}
-
-\begin{document}
 	
 	\begin{lstlisting}[caption=Вероятност за успех на атака (P) при различни стойности на q и z, basicstyle=\ttfamily\footnotesize, frame=single]
 		P < 0.001
@@ -297,5 +286,18 @@ $$
 		z=45  P=0.0000024
 		z=50  P=0.0000006
 	\end{lstlisting}
+	
+\section{Заключение}
+Предложихме система за електронни транзакции, без да се разчита на доверие. Започнахме с обичайната рамка от монети, направени от цифрови подписи, която осигурява силен контрол върху собствеността, но е непълна без начин за предотвратяване на двойно харчене. За да решим това, предложихме peer-to-peer мрежа, използваща proof-of-work (доказателство за работа), за да записва публична история на транзакциите, която бързо става изчислително непрактична за атакуващия, ако честните възли контролират по-голямата част от процесорната мощност. Мрежата е стабилна в своята неструктурирана простота. Възлите работят едновременно с малка координация. Не е необходимо да бъдат идентифицирани, тъй като съобщенията не се насочват към конкретно място и трябва да бъдат доставяни само на базата на максимални усилия. Възлите могат да напускат и да се присъединяват отново към мрежата по желание, приемайки веригата proof-of-work като доказателство за това какво се е случило, докато са отсъствали. Те гласуват с процесорната си мощност, изразявайки приемането си на валидни блокове, като работят по разширяването им, и отхвърлят невалидни блокове, като отказват да работят по тях. Всички необходими правила и стимули могат да бъдат наложени с този консенсусен механизъм.
+
+\section{References}
+[1] W. Dai, "b-money," http://www.weidai.com/bmoney.txt, 1998.\\
+[2] H. Massias, X.S. Avila, and J.-J. Quisquater, "Design of a secure timestamping service with minimal trust requirements," In 20th Symposium on Information Theory in the Benelux, May 1999.\\
+[3] S. Haber, W.S. Stornetta, "How to time-stamp a digital document," In Journal of Cryptology, vol 3, no 2, pages 99-111, 1991.\\
+[4] D. Bayer, S. Haber, W.S. Stornetta, "Improving the efficiency and reliability of digital time-stamping," In Sequences II: Methods in Communication, Security and Computer Science, pages 329-334, 1993.\\
+[5] S. Haber, W.S. Stornetta, "Secure names for bit-strings," In Proceedings of the 4th ACM Conference on Computer and Communications Security, pages 28-35, April 1997.\\
+[6] A. Back, "Hashcash - a denial of service counter-measure," http://www.hashcash.org/papers/hashcash.pdf, 2002.\\
+[7] R.C. Merkle, "Protocols for public key cryptosystems," In Proc. 1980 Symposium on Security and Privacy, IEEE Computer Society, pages 122-133, April 1980.\\
+[8] W. Feller, "An introduction to probability theory and its applications," 1957.
 
 \end{document}
