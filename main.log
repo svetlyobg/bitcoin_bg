@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.8.26)  19 MAY 2025 17:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.8.26)  19 MAY 2025 17:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -858,26 +858,19 @@ Overfull \hbox (5.68504pt too wide) in paragraph at lines 53--54
 и под-пи-си. Все-ки соб-с-тве-ник прехвър-
  []
 
-[2] [3] [4] [5] (main.aux)
+[2] [3] [4] [5] [6] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: DA029F725939BF22684B2BC1E8F9F807;1390
-(rerunfilecheck)             After:  D9DA660165DF0F1EDC67F78D3E6C96BE;1713.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: FD88D30B2DD1E219E259440A9334026D;1860.
  ) 
 Here is how much of TeX's memory you used:
- 22396 strings out of 474484
- 415466 string characters out of 5753527
+ 22400 strings out of 474484
+ 415503 string characters out of 5753527
  1945542 words of memory out of 5000000
- 44311 multiletter control sequences out of 15000+600000
+ 44313 multiletter control sequences out of 15000+600000
  571705 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,11n,107p,3241b,722s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -892,9 +885,9 @@ t2a/dpi600\larm1000.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/
 lh-t2a/dpi600\labx1000.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/
 lh/lh-t2a/dpi600\larm1200.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfo
 ur/lh/lh-t2a/dpi600\labx1728.pk>
-Output written on main.pdf (5 pages, 126496 bytes).
+Output written on main.pdf (6 pages, 130579 bytes).
 PDF statistics:
- 403 PDF objects out of 1000 (max. 8388607)
- 22 named destinations out of 1000 (max. 500000)
- 69 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 418 PDF objects out of 1000 (max. 8388607)
+ 24 named destinations out of 1000 (max. 500000)
+ 85 words of extra memory for PDF output out of 10000 (max. 10000000)
 
