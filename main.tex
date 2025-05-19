@@ -28,6 +28,9 @@
 \fancyhf{}
 \fancyfoot[C]{\thepage}
 
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
+
 % --- Заглавие ---
 \title{\textbf{Биткойн: Директна електронна парична система}}
 \author{Сатоши Накамото}
@@ -50,6 +53,57 @@
 \section{Транзакции}
 
 Дефинираме електронна монета като верига от цифрови подписи. Всеки собственик прехвърля монетата на следващия, като подписва цифрово хеш на предишната транзакция и публичния ключ на следващия собственик и ги добавя в края на монетата. Получателят може да провери подписите, за да потвърди веригата на собственост.
+
+\begin{tikzpicture}[
+	scale=0.7, % Още по-маък мащаб
+	node distance=0.8cm and 1.2cm, % Още по-малки разстояния
+	block/.style={rectangle, draw, thick, text centered, rounded corners, font=\scriptsize, inner sep=3pt}, % Още по-малък шрифт и вътрешно отстояние
+	line/.style={draw, -Latex, thick},
+	dashed_line/.style={draw, dashed, -Latex, thick},
+	every node/.style={align=center} % Центриране на текста в многоредови възли
+	]
+	% Първа транзакция
+	\node (trans1) [block] {Транзакция};
+	\node (pk1) [block, below=of trans1] {Публичен Ключ на Притежател 1};
+	\node (hash1) [block, below=of pk1] {Хеш};
+	\node (sig0) [block, below=of hash1] {Подпис на Притежател 0};
+	\node (privk1) [block, below left=1cm and 0.5cm of sig0] {Частен Ключ на Притежател 1};
+	
+	\draw [->] (trans1) -- (pk1);
+	\draw [->] (pk1) -- (hash1);
+	\draw [->] (hash1) -- (sig0);
+	\draw [dashed, ->] (privk1) -- node[left, font=\tiny] {Подпис} (trans1);
+	\draw [dashed, ->] (pk1) -- node[above left, font=\tiny] {Проверка} (sig0);
+	
+	% Втора транзакция
+	\node (trans2) [block, right=1.8cm of trans1] {Транзакция};
+	\node (pk2) [block, below=of trans2] {Публичен Ключ на Притежател 2};
+	\node (hash2) [block, below=of pk2] {Хеш};
+	\node (sig1) [block, below=of hash2] {Подпис на Притежател 1};
+	\node (privk2) [block, below left=1cm and 0.5cm of sig1] {Частен Ключ на Притежател 2};
+	
+	\draw [->] (trans2) -- (pk2);
+	\draw [->] (pk2) -- (hash2);
+	\draw [->] (hash2) -- (sig1);
+	\draw [dashed, ->] (privk2) -- node[left, font=\tiny] {Подпис} (trans2);
+	\draw [dashed, ->] (pk2) -- node[above left, font=\tiny] {Проверка} (sig1);
+	\draw [dashed, ->] (pk1.south east) -- ++(0.3cm,-0.3cm) -- node[right, font=\tiny] {} (sig1.north west);
+	
+	% Трета транзакция
+	\node (trans3) [block, right=1.8cm of trans2] {Транзакция};
+	\node (pk3) [block, below=of trans3] {Публичен Ключ на Притежател 3};
+	\node (hash3) [block, below=of pk3] {Хеш};
+	\node (sig2) [block, below=of hash3] {Подпис на Притежател 2};
+	\node (privk3) [block, below left=1cm and 0.5cm of sig2] {Частен Ключ на Притежател 3};
+	
+	\draw [->] (trans3) -- (pk3);
+	\draw [->] (pk3) -- (hash3);
+	\draw [->] (hash3) -- (sig2);
+	\draw [dashed, ->] (privk3) -- node[left, font=\tiny] {Подпис} (trans3);
+	\draw [dashed, ->] (pk3) -- node[above left, font=\tiny] {Проверка} (sig2);
+	\draw [dashed, ->] (pk2.south east) -- ++(0.3cm,-0.3cm) -- node[right, font=\tiny] {} (sig2.north west);
+	
+\end{tikzpicture}
 
 % (тук продължаваш с превода)
 
