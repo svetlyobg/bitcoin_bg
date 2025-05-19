@@ -119,34 +119,30 @@
 
 За нашата мрежа с времеви марки, ние имплементираме доказателството за работа чрез увеличаване на nonce в блока, докато не се намери стойност, която дава на хеша на блока необходимите нули битове. След като процесорните усилия са изразходвани, за да се удовлетвори доказателството за работа, блокът не може да бъде променен без да се извърши повторно действието. Тъй като по-късни блокове се свързват след него, работата по промяната на блока ще включва повторно изпълнение на всички блокове след него.
 
-\begin{tikzpicture}[
-	node distance=1cm and 1.5cm,
-	block/.style={rectangle, draw, thick, text centered, rounded corners},
-	smallblock/.style={rectangle, draw, thin, text centered, rounded corners, font=\scriptsize},
-	line/.style={draw, -Latex}
-	]
-	% Първи блок
-	\node (block1) [block] {Блок};
-	\node (prevhash1) [smallblock, below left=0.3cm and 0.3cm of block1] {Пред. Хеш};
-	\node (nonce1) [smallblock, below right=0.3cm and 0.3cm of block1] {Нонс};
-	\node (tx1) [smallblock, below=0.3cm of prevhash1, anchor=north west, xshift=0cm] {Транз.};
-	\node (more1) [smallblock, below=0.1cm of tx1, anchor=north west, xshift=0cm] {...};
-	
-	% Втори блок
-	\node (block2) [block, right=3cm of block1] {Блок};
-	\node (prevhash2) [smallblock, below left=0.3cm and 0.3cm of block2] {Пред. Хеш};
-	\node (nonce2) [smallblock, below right=0.3cm and 0.3cm of block2] {Нонс};
-	\node (tx2) [smallblock, below=0.3cm of prevhash2, anchor=north west, xshift=0cm] {Транз.};
-	\node (more2) [smallblock, below=0.1cm of tx2, anchor=north west, xshift=0cm] {...};
-	
-	% Връзка между блоковете
-	\draw [line] (block1.east) -- (block2.west);
-	\draw [line] (prevhash1.east) -- (block2.west);
-	
-	% Входяща стрелка към първия блок
-	\draw [line] ([xshift=-1cm]block1.west) -- (block1.west);
-	
-\end{tikzpicture}
+\begin{center}
+	\begin{tikzpicture}
+		% Първи блок
+		\draw (0,0) rectangle (5,3);
+		\node at (2.5,2.6) {\textbf{Блок}};
+		\draw (0.5,2) rectangle (2,1.5) node[pos=.5] {\scriptsize Предишен Хеш};
+		\draw (3,2) rectangle (4.5,1.5) node[pos=.5] {\scriptsize Еднократен номер};
+		\draw (0.5,1) rectangle (2,0.5) node[pos=.5] {\scriptsize Запис};
+		\draw (2.5,1) rectangle (4,0.5) node[pos=.5] {\scriptsize Запис};
+		\draw (4.5,1) rectangle (5,0.5) node[pos=.5] {\scriptsize ...};
+		
+		% Стрелка към втория блок
+		\draw[->] (5,1.5) -- (6,1.5);
+		
+		% Втори блок
+		\draw (6,0) rectangle (11,3);
+		\node at (8.5,2.6) {\textbf{Блок}};
+		\draw (6.5,2) rectangle (8,1.5) node[pos=.5] {\scriptsize Предишен Хеш};
+		\draw (9,2) rectangle (10.5,1.5) node[pos=.5] {\scriptsize Еднократен номер};
+		\draw (6.5,1) rectangle (8,0.5) node[pos=.5] {\scriptsize Запис};
+		\draw (8.5,1) rectangle (10,0.5) node[pos=.5] {\scriptsize Запис};
+		\draw (10.5,1) rectangle (11,0.5) node[pos=.5] {\scriptsize ...};
+	\end{tikzpicture}
+	\end{center}
 
 Доказателството за работа също решава проблема с определянето на представителството при вземането на решения с мнозинство. Ако мнозинството се основаваше на един IP адрес - един глас, то би могло да бъде подкопано от всеки, който е способен да разпредели много IP адреси. Доказателството за работа е по същество един процесор - един глас. Решението на мнозинството е представено от най-дългата верига, в която са инвестирани най-големи усилия за доказателство за работа. Ако по-голямата част от мощността на процесора се контролира от честни възли, честната верига ще расте най-бързо и ще изпревари всички конкурентни вериги. За да модифицира минал блок, атакуващият ще трябва да преработи доказателството за работа на блока и всички блокове след него, а след това да настигне и надмине работата на честните възли. По-късно ще покажем, че вероятността по-бавен атакуващ да настигне намалява експоненциално с добавянето на следващи блокове.
 
