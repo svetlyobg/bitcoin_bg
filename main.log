@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.8.26)  19 MAY 2025 17:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.8.26)  19 MAY 2025 17:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -870,14 +870,14 @@ Package rerunfilecheck Warning: File `main.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 709C5D440F2799796C65D3878324CFFC;869
-(rerunfilecheck)             After:  F5EDF1D335DA7336877576EC0F8B2A98;952.
+(rerunfilecheck)             Before: F5EDF1D335DA7336877576EC0F8B2A98;952
+(rerunfilecheck)             After:  A51DD3F5AA756A29CE8748A267A5C494;1043.
  ) 
 Here is how much of TeX's memory you used:
- 22389 strings out of 474484
- 415400 string characters out of 5753527
+ 22391 strings out of 474484
+ 415420 string characters out of 5753527
  1945542 words of memory out of 5000000
- 44308 multiletter control sequences out of 15000+600000
+ 44309 multiletter control sequences out of 15000+600000
  571705 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,11n,107p,3241b,722s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -892,9 +892,9 @@ t2a/dpi600\larm1000.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/
 lh-t2a/dpi600\labx1000.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/
 lh/lh-t2a/dpi600\larm1200.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfo
 ur/lh/lh-t2a/dpi600\labx1728.pk>
-Output written on main.pdf (4 pages, 116165 bytes).
+Output written on main.pdf (4 pages, 119255 bytes).
 PDF statistics:
- 374 PDF objects out of 1000 (max. 8388607)
- 18 named destinations out of 1000 (max. 500000)
- 45 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 382 PDF objects out of 1000 (max. 8388607)
+ 19 named destinations out of 1000 (max. 500000)
+ 53 words of extra memory for PDF output out of 10000 (max. 10000000)
 
