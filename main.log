@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.8.26)  22 MAY 2025 19:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.8.26)  22 MAY 2025 19:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -940,7 +940,7 @@ l.141 ..., label=blocklabel:Блок] (block2) {};
 
 [3] [4] [5] [6]
 ! Misplaced alignment tab character &.
-l.261 	1, &
+l.263 	1, &
             \mathrm{ако } p \leq q \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -950,16 +950,16 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 
-LaTeX Warning: Command \cyra invalid in math mode on input line 261.
+LaTeX Warning: Command \cyra invalid in math mode on input line 263.
 
 
-LaTeX Warning: Command \cyrk invalid in math mode on input line 261.
+LaTeX Warning: Command \cyrk invalid in math mode on input line 263.
 
 
-LaTeX Warning: Command \cyro invalid in math mode on input line 261.
+LaTeX Warning: Command \cyro invalid in math mode on input line 263.
 
 ! Misplaced alignment tab character &.
-l.262 	\left(\frac{q}{p}\right)^z, &
+l.264 	\left(\frac{q}{p}\right)^z, &
                                      \mathrm{ако } p > q
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -969,13 +969,13 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 
-LaTeX Warning: Command \cyra invalid in math mode on input line 262.
+LaTeX Warning: Command \cyra invalid in math mode on input line 264.
 
 
-LaTeX Warning: Command \cyrk invalid in math mode on input line 262.
+LaTeX Warning: Command \cyrk invalid in math mode on input line 264.
 
 
-LaTeX Warning: Command \cyro invalid in math mode on input line 262.
+LaTeX Warning: Command \cyro invalid in math mode on input line 264.
 
 Missing character: There is no � in font cmr10!
 Missing character: There is no � in font cmr10!
@@ -986,7 +986,7 @@ Missing character: There is no � in font cmr10!
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \hfil 
-l.281 	\left
+l.283 	\left
             (\frac{q}{p}\right)^{(z-k)} & \text{ако } k \leq z \\
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -998,7 +998,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing \right. inserted.
 <inserted text> 
                 \right .
-l.281 	\left
+l.283 	\left
             (\frac{q}{p}\right)^{(z-k)} & \text{ако } k \leq z \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1009,7 +1009,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing \endgroup inserted.
 <inserted text> 
                 \endgroup 
-l.281 	\left(\frac{q}{p}\right
+l.283 	\left(\frac{q}{p}\right
                               )^{(z-k)} & \text{ако } k \leq z \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1018,12 +1018,12 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 ! Extra \right.
-l.281 	\left(\frac{q}{p}\right)
+l.283 	\left(\frac{q}{p}\right)
                                ^{(z-k)} & \text{ако } k \leq z \\
 I'm ignoring a \right that had no matching \left.
 
 ! Misplaced alignment tab character &.
-l.281 	\left(\frac{q}{p}\right)^{(z-k)} &
+l.283 	\left(\frac{q}{p}\right)^{(z-k)} &
                                           \text{ако } k \leq z \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1033,7 +1033,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Undefined control sequence.
-l.281 	\left(\frac{q}{p}\right)^{(z-k)} & \text
+l.283 	\left(\frac{q}{p}\right)^{(z-k)} & \text
                                                {ако } k \leq z \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1042,16 +1042,16 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Command \cyra invalid in math mode on input line 281.
+LaTeX Warning: Command \cyra invalid in math mode on input line 283.
 
 
-LaTeX Warning: Command \cyrk invalid in math mode on input line 281.
+LaTeX Warning: Command \cyrk invalid in math mode on input line 283.
 
 
-LaTeX Warning: Command \cyro invalid in math mode on input line 281.
+LaTeX Warning: Command \cyro invalid in math mode on input line 283.
 
 ! Misplaced alignment tab character &.
-l.282 	1 &
+l.284 	1 &
            \text{ако } k > z
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1061,7 +1061,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Undefined control sequence.
-l.282 	1 & \text
+l.284 	1 & \text
                 {ако } k > z
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1070,13 +1070,13 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Command \cyra invalid in math mode on input line 282.
+LaTeX Warning: Command \cyra invalid in math mode on input line 284.
 
 
-LaTeX Warning: Command \cyrk invalid in math mode on input line 282.
+LaTeX Warning: Command \cyrk invalid in math mode on input line 284.
 
 
-LaTeX Warning: Command \cyro invalid in math mode on input line 282.
+LaTeX Warning: Command \cyro invalid in math mode on input line 284.
 
 
 ! LaTeX Error: \begin{document} ended by \end{cases}.
@@ -1085,7 +1085,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.283 \end{cases}
+l.285 \end{cases}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1094,7 +1094,7 @@ or  <return>  to continue without it.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.283 \end{cases}
+l.285 \end{cases}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1105,7 +1105,7 @@ my insertion and my current dilemma will both disappear.
 ! Display math should end with $$.
 <to be read again> 
                    \endgroup 
-l.283 \end{cases}
+l.285 \end{cases}
                  
 The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
@@ -1119,14 +1119,14 @@ Missing character: There is no � in font cmr10!
 ! Extra \endgroup.
 <recently read> \endgroup 
                           
-l.283 \end{cases}
+l.285 \end{cases}
                  
 Things are pretty mixed up, but I think the worst is over.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.285 
+l.287 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1134,7 +1134,7 @@ you left one out. Proceed, with fingers crossed.
 ! Display math should end with $$.
 <to be read again> 
                    \tex_par:D 
-l.285 
+l.287 
       
 The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
@@ -1149,21 +1149,21 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 294.
+nput line 296.
 LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 
-294.
+296.
 
 (C:\Users\Rumi\AppData\Roaming\MiKTeX\tex/latex/cyrillic\t2acmtt.fd
 File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )
 LaTeX Font Info:    Font shape `T2A/cmtt/bx/n' in size <9> not available
-(Font)              Font shape `T2A/cmtt/m/n' tried instead on input line 296.
+(Font)              Font shape `T2A/cmtt/m/n' tried instead on input line 298.
  [7]
 [8]
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.368 [2]
+l.370 [2]
           H. Massias, X.S. Avila, and J.-J. Quisquater, "Design of a secure ...
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1175,7 +1175,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.369 [3]
+l.371 [3]
           S. Haber, W.S. Stornetta, "How to time-stamp a digital document," ...
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1187,7 +1187,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.370 [4]
+l.372 [4]
           D. Bayer, S. Haber, W.S. Stornetta, "Improving the efficiency and ...
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1199,7 +1199,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.371 [5]
+l.373 [5]
           S. Haber, W.S. Stornetta, "Secure names for bit-strings," In Proce...
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1211,7 +1211,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.372 [6]
+l.374 [6]
           A. Back, "Hashcash - a denial of service counter-measure," http://...
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1223,7 +1223,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.373 [7]
+l.375 [7]
           R.C. Merkle, "Protocols for public key cryptosystems," In Proc. 19...
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1235,7 +1235,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.374 [8]
+l.376 [8]
           W. Feller, "An introduction to probability theory and its applicat...
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1245,13 +1245,13 @@ delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
 
-Overfull \hbox (11.0936pt too wide) in paragraph at lines 367--375
+Overfull \hbox (11.0936pt too wide) in paragraph at lines 369--377
 \T2A/cmr/m/n/10.95 S. Haber, W.S. Stornetta, "Secure names for bit-strings,"In 
 Proceedings of the 4th ACM Conference
  []
 
 
-Overfull \hbox (46.18126pt too wide) in paragraph at lines 367--375
+Overfull \hbox (46.18126pt too wide) in paragraph at lines 369--377
 \T2A/cmr/m/n/10.95 A. Back, "Hashcash - a denial of service counter-measure,"ht
 tp://www.hashcash.org/papers/hashcash.pdf,
  []
@@ -1272,31 +1272,27 @@ Here is how much of TeX's memory you used:
  572942 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,12n,107p,3241b,2138s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exist
-, replaced by a fixed one
-
- <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\latt0900.
-pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm08
-00.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\lar
-m0900.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\
-larm0600.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi6
-00\larm1095.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/d
-pi600\labx1440.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2
-a/dpi600\larm0700.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh
--t2a/dpi600\labx1000.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh
-/lh-t2a/dpi600\larm1000.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour
-/lh/lh-t2a/dpi600\larm1200.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljf
-our/lh/lh-t2a/dpi600\labx1728.pk><C:/Program Files/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-mi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/
-Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmsy8.pfb>
-Output written on main.pdf (9 pages, 248534 bytes).
+ <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\latt090
+0.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm
+0800.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\l
+arm0900.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi60
+0\larm0600.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dp
+i600\larm1095.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a
+/dpi600\labx1440.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-
+t2a/dpi600\larm0700.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/
+lh-t2a/dpi600\labx1000.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfour/
+lh/lh-t2a/dpi600\larm1000.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/ljfo
+ur/lh/lh-t2a/dpi600\larm1200.pk> <C:\Users\Rumi\AppData\Local\MiKTeX\fonts/pk/l
+jfour/lh/lh-t2a/dpi600\labx1728.pk><C:/Program Files/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C
+:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Fil
+es/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/font
+s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmsy8.pfb>
+Output written on main.pdf (9 pages, 251070 bytes).
 PDF statistics:
- 650 PDF objects out of 1000 (max. 8388607)
+ 658 PDF objects out of 1000 (max. 8388607)
  90 named destinations out of 1000 (max. 500000)
  109 words of extra memory for PDF output out of 10000 (max. 10000000)
 
