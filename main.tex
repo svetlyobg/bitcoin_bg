@@ -114,7 +114,46 @@
 \section{Сървър за времеви печати}
 Предлаганото от нас решение започва със сървър за времеви печати. Сървърът за времеви печати работи, като взема хеш на блок от елементи, които трябва да бъдат маркирани с времеви печат, и публикува хеша широко, например във вестник или публикация в Usenet [2-5]. Времевият печат доказва, че данните е трябвало да са съществували по това време, очевидно, за да попаднат в хеша. Всеки времеви печат включва предишния времеви печат в своя хеш, образувайки верига, като всеки допълнителен времеви печат подсилва тези преди него.
 
-Диаграма
+\begin{center}
+	\begin{tikzpicture}[
+	    box/.style={draw, minimum width=1.5cm, minimum height=0.8cm, align=center},
+	hash/.style={draw, minimum width=2cm, minimum height=1cm},
+	item/.style={draw, minimum width=1.2cm, minimum height=0.8cm},
+	blocklabel/.style={font=\bfseries, below=0.1cm},
+	arrow/.style={-{Stealth}, thick},
+	node distance=1.2cm and 1cm
+	]
+	
+	% Хешове
+	\node[hash] (hash1) {Хеш};
+	\node[hash, right=4.5cm of hash1] (hash2) {Хеш};
+	
+	% Елементи в блок 1
+	\node[item, below left=1.5cm and 2.4cm of hash1] (item11) {Елемент};
+	\node[item, right=of item11] (item12) {Елемент};
+	\node[item, right=of item12] (item13) {...};
+	\node[box, fit={(item11)(item12)(item13)}, label=blocklabel:Блок] (block1) {};
+	
+	% Елементи в блок 2
+	\node[item, below left=1.5cm and 2.4cm of hash2] (item21) {Елемент};
+	\node[item, right=of item21] (item22) {Елемент};
+	\node[item, right=of item22] (item23) {...};
+	\node[box, fit={(item21)(item22)(item23)}, label=blocklabel:Блок] (block2) {};
+	
+	% Стрелки към хешовете
+	\draw[arrow] (item11.north) -- ++(0,0.5) -| (hash1.south);
+	\draw[arrow] (item12.north) -- ++(0,0.7) -- (hash1.south);
+	\draw[arrow] (item13.north) -- ++(0,0.5) -| (hash1.south);
+	
+	\draw[arrow] (item21.north) -- ++(0,0.5) -| (hash2.south);
+	\draw[arrow] (item22.north) -- ++(0,0.7) -- (hash2.south);
+	\draw[arrow] (item23.north) -- ++(0,0.5) -| (hash2.south);
+	
+	% Връзка между хешове
+	\draw[arrow] (hash1.east) -- (hash2.west);
+	\draw[arrow] (hash2.east) -- ++(1.5,0);
+	\end{tikzpicture}
+\end{center}
 
 \section{Доказателство за извършена работа (Proof-of-Work)}
 За да имплементираме разпределен сървър за времеви марки на peer-to-peer база, ще трябва да използваме система за доказателство за работа, подобна на Hashcash [6] на Адам Бек, вместо публикации във вестници или Usenet. Доказателството за работа включва сканиране за стойност, която при хеширане, например с SHA-256, хешът започва с определен брой нули битове. Средната необходима работа е експоненциална в броя на необходимите нули битове и може да бъде проверена чрез изпълнение на едно хеширане.
