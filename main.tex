@@ -44,6 +44,47 @@
 \small Превод: Светлозар Косев}
 \date{}
 
+% Define styles for the nodes
+\forestset{
+	% Style for the outer "Block" box label
+	blocklabel/.style={
+		label={[yshift=0.5ex]above:\textbf{Блок}},
+	},
+	% Style for the "Block Header" box label
+	headerlabel/.style={
+		label={[yshift=0.5ex]above:Заглавка на Блок (Хеш на Блок)},
+	},
+	% Style for the main container box (Block and Block Header)
+	container/.style={
+		draw,
+		minimum width=8cm,
+		no edge, % This node itself does not have an edge from a parent
+		l sep=0mm, % No extra separation from its own (invisible) parent
+	},
+	% Style for Prev Hash, Nonce, Root Hash boxes
+	headeritem/.style={
+		draw,
+		minimum width=2.2cm,
+		minimum height=1.5em,
+		align=center,
+	},
+	% Style for dashed hash boxes
+	dashedbox/.style={
+		draw,
+		dashed,
+		minimum width=1.8cm,
+		minimum height=1.5em,
+		align=center,
+	},
+	% Style for solid transaction/hash boxes
+	solidbox/.style={
+		draw,
+		minimum width=1.8cm,
+		minimum height=1.5em,
+		align=center,
+	}
+}
+
 \begin{document}
 
 \maketitle
@@ -228,7 +269,76 @@
 \section{Възстановяване на дисково пространство}
 След като последната транзакция в дадена монета е скрита под достатъчно блокове, похарчените транзакции преди нея могат да бъдат изхвърлени, за да се спести място на диска. За да се улесни това, без да се нарушава хешът на блока, транзакциите се хешират в дърво на Меркъл [7][2][5], като само коренът е включен в хеша на блока. Старите блокове могат да бъдат компресирани чрез премахване на клони на дървото. Вътрешните хешове не е необходимо да се съхраняват.
 
-Диаграма
+% Diagram 1: Transactions Hashed in a Merkle Tree
+\begin{forest}
+	for tree={
+		grow=south,
+		parent anchor=south,
+		child anchor=north,
+		edge={-stealth},
+		s sep=2mm, % Sibling separation
+		l sep=8mm, % Level separation
+		if n children=0{tier=word}{}, % Align leaves
+		align=center
+	}
+	[, container, minimum height=9.5cm, blocklabel, % Outer "Block"
+	[, container, minimum height=3cm, headerlabel, yshift=-5mm, % "Block Header"
+	[Предходен Хеш, headeritem, xshift=-2.5cm, yshift=0mm, no edge]
+	[Нонс, headeritem, xshift=2.5cm, yshift=0mm, no edge]
+	[Коренов Хеш, headeritem, name=roothash1, % This is the actual root for the Merkle tree part
+	[Хеш01, dashedbox
+	[Хеш0, dashedbox
+	[Тр0, solidbox]
+	]
+	[Хеш1, dashedbox
+	[Тр1, solidbox]
+	]
+	]
+	[Хеш23, dashedbox
+	[Хеш2, dashedbox
+	[Тр2, solidbox]
+	]
+	[Хеш3, dashedbox
+	[Тр3, solidbox]
+	]
+	]
+	]
+	]
+	]
+	\node[below=2mm of current bounding box.south] {Транзакции, хеширани в Меркъл Дърво};
+\end{forest}
+
+\hspace{2cm} % Space between the two diagrams
+
+% Diagram 2: After Pruning Tx0-2 from the Block
+\begin{forest}
+	for tree={
+		grow=south,
+		parent anchor=south,
+		child anchor=north,
+		edge={-stealth},
+		s sep=2mm, % Sibling separation
+		l sep=8mm, % Level separation
+		if n children=0{tier=word}{}, % Align leaves
+		align=center
+	}
+	[, container, minimum height=9.5cm, blocklabel, % Outer "Block"
+	[, container, minimum height=3cm, headerlabel, yshift=-5mm, % "Block Header"
+	[Предходен Хеш, headeritem, xshift=-2.5cm, yshift=0mm, no edge]
+	[Нонс, headeritem, xshift=2.5cm, yshift=0mm, no edge]
+	[Коренов Хеш, headeritem, name=roothash2, % This is the actual root for the Merkle tree part
+	[Хеш01, solidbox] % Changed to solidbox as per image
+	[Хеш23, dashedbox
+	[Хеш2, solidbox] % Changed to solidbox as per image
+	[Хеш3, dashedbox
+	[Тр3, solidbox]
+	]
+	]
+	]
+	]
+	]
+	\node[below=2mm of current bounding box.south] {След премахване на Тр0-2 от Блока};
+\end{forest}
 
 По този начин, проверката е надеждна, стига честни възли да контролират мрежата, но е по-уязвима, ако мрежата е преодоляна от атакуващ. Докато мрежовите възли могат сами да проверяват транзакциите, опростеният метод може да бъде заблуден от изфабрикувани транзакции от атакуващия, стига атакуващият да може да продължи да преодолява мрежата. Една стратегия за защита срещу това би била да се приемат сигнали от мрежови възли, когато те открият невалиден блок, което да подкани софтуера на потребителя да изтегли пълния блок и да предупреди транзакциите, за да потвърди несъответствието. Фирмите, които получават чести плащания, вероятно все пак ще искат да управляват свои собствени възли за по-независима сигурност и по-бърза проверка.
 
