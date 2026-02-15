@@ -376,7 +376,74 @@
 \section{Комбиниране и разделяне на стойност}
 Въпреки че би било възможно монетите да се обработват поотделно, би било тромаво да се прави отделна транзакция за всеки цент в превода. За да се позволи разделянето и комбинирането на стойността, транзакциите съдържат множество входни и изходни данни. Обикновено ще има или един вход от по-голяма предишна транзакция, или множество входни данни, комбиниращи по-малки суми, и най-много два изхода: един за плащането и един за връщане на рестото, ако има такова, обратно на подателя.
 
-Диаграма
+\begin{figure}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+	hbox/.style={draw, minimum width=1.8cm, minimum height=0.65cm, align=center, font=\small},
+	dbox/.style={draw, dashed, minimum width=1.5cm, minimum height=0.65cm, align=center, font=\small},
+	sbox/.style={draw, fill=white, minimum width=1.5cm, minimum height=0.65cm, align=center, font=\small},
+	arr/.style={-{Stealth[length=2mm]}},
+	garr/.style={-{Stealth[length=2mm]}, gray}
+]
+
+% Заглавие
+\node[font=\small, anchor=south west] at (-1.2, 4.8) {Най-дългата верига с доказателство за работа};
+
+% === Блок 1 (ляв) ===
+\def\bx{0}
+\node[draw, minimum width=5cm, minimum height=3.2cm] (blk1) at (\bx, 2.5) {};
+\node[anchor=north, font=\small] at (blk1.north) {Заглавка на Блок};
+\node[hbox] (ph1) at (\bx-0.9, 2.8) {Пред. Хеш};
+\node[hbox] (nc1) at (\bx+1.1, 2.8) {Нонс};
+\node[hbox] (mr1) at (\bx-0.5, 1.8) {Коренов Хеш};
+% Стрелка влизаща
+\draw[arr] (\bx-3.2, 2.8) -- (ph1.west);
+
+% === Блок 2 (среден) ===
+\def\bxb{6.5}
+\node[draw, minimum width=5cm, minimum height=3.2cm] (blk2) at (\bxb, 2.5) {};
+\node[anchor=north, font=\small] at (blk2.north) {Заглавка на Блок};
+\node[hbox] (ph2) at (\bxb-0.9, 2.8) {Пред. Хеш};
+\node[hbox] (nc2) at (\bxb+1.1, 2.8) {Нонс};
+\node[hbox] (mr2) at (\bxb-0.5, 1.8) {Коренов Хеш};
+% Стрелка от блок 1 към блок 2
+\draw[arr] (blk1.east) -- (ph2.west);
+
+% === Блок 3 (десен) ===
+\def\bxc{13}
+\node[draw, minimum width=5cm, minimum height=3.2cm] (blk3) at (\bxc, 2.5) {};
+\node[anchor=north, font=\small] at (blk3.north) {Заглавка на Блок};
+\node[hbox] (ph3) at (\bxc-0.9, 2.8) {Пред. Хеш};
+\node[hbox] (nc3) at (\bxc+1.1, 2.8) {Нонс};
+\node[hbox] (mr3) at (\bxc-0.5, 1.8) {Коренов Хеш};
+% Стрелка от блок 2 към блок 3
+\draw[arr] (blk2.east) -- (ph3.west);
+% Стрелка излизаща
+\draw[arr] (blk3.east) -- (\bxc+3.2, 2.8);
+
+% === Меркъл клон за Тр3 (под среден блок) ===
+\node[sbox] (mh01) at (\bxb-1.2, -0.2) {Хеш01};
+\node[dbox] (mh23) at (\bxb+1.0, -0.2) {Хеш23};
+
+\node[sbox] (mh2) at (\bxb+0.0, -1.6) {Хеш2};
+\node[dbox] (mh3) at (\bxb+1.8, -1.6) {Хеш3};
+
+\node[hbox] (mtx3) at (\bxb+1.8, -3.0) {Тр3};
+
+% Стрелки на Меркъл дървото
+\draw[garr] (mh01) -- (mr2);
+\draw[garr] (mh23) -- (mr2);
+\draw[arr] (mh2) -- (mh23);
+\draw[arr] (mh3) -- (mh23);
+\draw[arr] (mtx3) -- (mh3);
+
+% Етикет
+\node[font=\small, anchor=west] at (\bxb+2.2, -0.9) {Меркъл клон за Тр3};
+
+\end{tikzpicture}%
+}
+\end{figure}
 
 Трябва да се отбележи, че разклоняването, при което една транзакция зависи от няколко транзакции, а тези транзакции зависят от много други, не е проблем тук. Никога не е необходимо да се извлича пълно самостоятелно копие на историята на транзакцията.
 
