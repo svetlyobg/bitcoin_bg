@@ -371,6 +371,72 @@
 }
 \end{figure}
 
+Заглавка на блок без транзакции би била приблизително 80 байта. Ако предположим, че блокове се генерират на всеки 10 минути, 80 байта * 6 * 24 * 365 = 4,2 MB на година. При компютърни системи, продаващи се обикновено с 2 GB RAM към 2008 г., и закона на Мур, предсказващ текущ растеж от 1,2 GB на година, съхранението не би трябвало да е проблем, дори ако заглавките на блоковете трябва да се пазят в паметта.
+
+\section{Опростена проверка на плащания}
+Възможно е да се проверяват плащания, без да се стартира пълен мрежови възел. Потребителят трябва само да пази копие от заглавките на блоковете на най-дългата верига с доказателство за работа, които може да получи, като запитва мрежови възли, докато се убеди, че разполага с най-дългата верига, и да получи Меркъл клона, свързващ транзакцията с блока, в който е маркирана с времеви печат. Той не може да провери транзакцията сам, но като я свърже с място във веригата, може да види, че мрежови възел я е приел, а блоковете, добавени след нея, допълнително потвърждават, че мрежата я е приела.
+
+\begin{figure}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+	hbox/.style={draw, minimum width=1.8cm, minimum height=0.65cm, align=center, font=\small},
+	dbox/.style={draw, dashed, minimum width=1.5cm, minimum height=0.65cm, align=center, font=\small},
+	sbox/.style={draw, fill=white, minimum width=1.5cm, minimum height=0.65cm, align=center, font=\small},
+	arr/.style={-{Stealth[length=2mm]}},
+	garr/.style={-{Stealth[length=2mm]}, gray}
+]
+
+% Заглавие
+\node[font=\small, anchor=south west] at (-1.2, 4.8) {Най-дългата верига с доказателство за работа};
+
+% === Блок 1 (ляв) ===
+\def\bx{0}
+\node[draw, minimum width=5cm, minimum height=3.2cm] (blk1) at (\bx, 2.5) {};
+\node[anchor=north, font=\small] at (blk1.north) {Заглавка на Блок};
+\node[hbox] (ph1) at (\bx-0.9, 2.8) {Пред. Хеш};
+\node[hbox] (nc1) at (\bx+1.1, 2.8) {Нонс};
+\node[hbox] (mr1) at (\bx-0.5, 1.8) {Коренов Хеш};
+\draw[arr] (\bx-3.2, 2.8) -- (ph1.west);
+
+% === Блок 2 (среден) ===
+\def\bxb{6.5}
+\node[draw, minimum width=5cm, minimum height=3.2cm] (blk2) at (\bxb, 2.5) {};
+\node[anchor=north, font=\small] at (blk2.north) {Заглавка на Блок};
+\node[hbox] (ph2) at (\bxb-0.9, 2.8) {Пред. Хеш};
+\node[hbox] (nc2) at (\bxb+1.1, 2.8) {Нонс};
+\node[hbox] (mr2) at (\bxb-0.5, 1.8) {Коренов Хеш};
+\draw[arr] (blk1.east) -- (ph2.west);
+
+% === Блок 3 (десен) ===
+\def\bxc{13}
+\node[draw, minimum width=5cm, minimum height=3.2cm] (blk3) at (\bxc, 2.5) {};
+\node[anchor=north, font=\small] at (blk3.north) {Заглавка на Блок};
+\node[hbox] (ph3) at (\bxc-0.9, 2.8) {Пред. Хеш};
+\node[hbox] (nc3) at (\bxc+1.1, 2.8) {Нонс};
+\node[hbox] (mr3) at (\bxc-0.5, 1.8) {Коренов Хеш};
+\draw[arr] (blk2.east) -- (ph3.west);
+\draw[arr] (blk3.east) -- (\bxc+3.2, 2.8);
+
+% === Меркъл клон за Тр3 ===
+\node[sbox] (mh01) at (\bxb-1.2, -0.2) {Хеш01};
+\node[dbox] (mh23) at (\bxb+1.0, -0.2) {Хеш23};
+\node[sbox] (mh2) at (\bxb+0.0, -1.6) {Хеш2};
+\node[dbox] (mh3) at (\bxb+1.8, -1.6) {Хеш3};
+\node[hbox] (mtx3) at (\bxb+1.8, -3.0) {Тр3};
+
+\draw[garr] (mh01) -- (mr2);
+\draw[garr] (mh23) -- (mr2);
+\draw[arr] (mh2) -- (mh23);
+\draw[arr] (mh3) -- (mh23);
+\draw[arr] (mtx3) -- (mh3);
+
+\node[font=\small, anchor=west] at (\bxb+2.2, -0.9) {Меркъл клон за Тр3};
+
+\end{tikzpicture}%
+}
+\end{figure}
+
 По този начин, проверката е надеждна, стига честни възли да контролират мрежата, но е по-уязвима, ако мрежата е преодоляна от атакуващ. Докато мрежовите възли могат сами да проверяват транзакциите, опростеният метод може да бъде заблуден от изфабрикувани транзакции от атакуващия, стига атакуващият да може да продължи да преодолява мрежата. Една стратегия за защита срещу това би била да се приемат сигнали от мрежови възли, когато те открият невалиден блок, което да подкани софтуера на потребителя да изтегли пълния блок и да предупреди транзакциите, за да потвърди несъответствието. Фирмите, които получават чести плащания, вероятно все пак ще искат да управляват свои собствени възли за по-независима сигурност и по-бърза проверка.
 
 \section{Комбиниране и разделяне на стойност}
@@ -416,9 +482,7 @@
 Трябва да се отбележи, че разклоняването, при което една транзакция зависи от няколко транзакции, а тези транзакции зависят от много други, не е проблем тук. Никога не е необходимо да се извлича пълно самостоятелно копие на историята на транзакцията.
 
 \section{Поверителност}
-Традиционният банков модел постига ниво на поверителност, като ограничава достъпа до информация до участващите страни и доверената трета страна. Необходимостта от публично обявяване на всички транзакции изключва този метод, но поверителността все пак може да се запази чрез прекъсване на потока от информация на друго място: чрез запазване на анонимността на публичните ключове. Обществеността може да види, че някой изпраща сума на някой друг, но без информация, свързваща транзакцията с когото и да било. Това е подобно на нивото на информация, публикувана от фондовите борси, където времето и размерът на отделните сделки, „лентата“, се оповестяват публично, но без да се казва кои са били страните.
-
-Традиционният банков модел постига ниво на поверителност, като ограничава достъпа до информация до участващите страни и доверената трета страна. Необходимостта от публично обявяване на всички транзакции изключва този метод, но поверителността все пак може да се запази чрез прекъсване на потока от информация на друго място: чрез запазване на анонимността на публичните ключове. Обществеността може да види, че някой изпраща сума на някой друг, но без информация, свързваща транзакцията с когото и да било. Това е подобно на нивото на информация, публикувана от фондовите борси, където времето и размерът на отделните сделки, „лентата“, се оповестяват публично, но без да се казва кои са били страните.
+Традиционният банков модел постига ниво на поверителност, като ограничава достъпа до информация до участващите страни и доверената трета страна. Необходимостта от публично обявяване на всички транзакции изключва този метод, но поверителността все пак може да се запази чрез прекъсване на потока от информация на друго място: чрез запазване на анонимността на публичните ключове. Обществеността може да види, че някой изпраща сума на някой друг, но без информация, свързваща транзакцията с когото и да било. Това е подобно на нивото на информация, публикувана от фондовите борси, където времето и размерът на отделните сделки, „лентата", се оповестяват публично, но без да се казва кои са били страните.
 
 \begin{figure}[h]
 \centering
@@ -524,23 +588,19 @@ $$
 
 Като изпълним някои резултати, можем да видим, че вероятността намалява експоненциално със z.
 
-\begin{lstlisting}[language=C++, caption=Изчисляване на вероятността за успех на атакуващ, basicstyle=\ttfamily\footnotesize, frame=single]
-	#include <cmath>
-	double AttackerSuccessProbability(double q, int z)
-	{
-		double p = 1.0 - q;
-		double lambda = z * (q / p);
-		double sum = 1.0;
-		int i, k;
-		for (k = 0; k <= z; k++)
-		{
-			double poisson = exp(-lambda);
-			for (i = 1; i <= k; i++)
-			poisson *= lambda / i;
-			sum -= poisson * (1 - pow(q / p, z - k));
-		}
-		return sum;
-	}
+\begin{lstlisting}[caption=Резултати при q=0.1, basicstyle=\ttfamily\footnotesize, frame=single]
+   q=0.1
+   z=0    P=1.0000000
+   z=1    P=0.2045873
+   z=2    P=0.0509779
+   z=3    P=0.0131722
+   z=4    P=0.0034552
+   z=5    P=0.0009137
+   z=6    P=0.0002428
+   z=7    P=0.0000647
+   z=8    P=0.0000173
+   z=9    P=0.0000046
+   z=10   P=0.0000012
 \end{lstlisting}
 
 Решаване на задачата за P по-малко от 0,1\%...
@@ -575,14 +635,15 @@ $$
 \section{Заключение}
 Предложихме система за електронни транзакции, без да се разчита на доверие. Започнахме с обичайната рамка от монети, направени от цифрови подписи, която осигурява силен контрол върху собствеността, но е непълна без начин за предотвратяване на двойно харчене. За да решим това, предложихме peer-to-peer мрежа, използваща proof-of-work (доказателство за работа), за да записва публична история на транзакциите, която бързо става изчислително непрактична за атакуващия, ако честните възли контролират по-голямата част от процесорната мощност. Мрежата е стабилна в своята неструктурирана простота. Възлите работят едновременно с малка координация. Не е необходимо да бъдат идентифицирани, тъй като съобщенията не се насочват към конкретно място и трябва да бъдат доставяни само на базата на максимални усилия. Възлите могат да напускат и да се присъединяват отново към мрежата по желание, приемайки веригата proof-of-work като доказателство за това какво се е случило, докато са отсъствали. Те гласуват с процесорната си мощност, изразявайки приемането си на валидни блокове, като работят по разширяването им, и отхвърлят невалидни блокове, като отказват да работят по тях. Всички необходими правила и стимули могат да бъдат наложени с този консенсусен механизъм.
 
-\section{References}
-[1] W. Dai, "b-money," http://www.weidai.com/bmoney.txt, 1998.\\
-[2] H. Massias, X.S. Avila, and J.-J. Quisquater, "Design of a secure timestamping service with minimal trust requirements," In 20th Symposium on Information Theory in the Benelux, May 1999.\\
-[3] S. Haber, W.S. Stornetta, "How to time-stamp a digital document," In Journal of Cryptology, vol 3, no 2, pages 99-111, 1991.\\
-[4] D. Bayer, S. Haber, W.S. Stornetta, "Improving the efficiency and reliability of digital time-stamping," In Sequences II: Methods in Communication, Security and Computer Science, pages 329-334, 1993.\\
-[5] S. Haber, W.S. Stornetta, "Secure names for bit-strings," In Proceedings of the 4th ACM Conference on Computer and Communications Security, pages 28-35, April 1997.\\
-[6] A. Back, "Hashcash - a denial of service counter-measure," http://www.hashcash.org/papers/hashcash.pdf, 2002.\\
-[7] R.C. Merkle, "Protocols for public key cryptosystems," In Proc. 1980 Symposium on Security and Privacy, IEEE Computer Society, pages 122-133, April 1980.\\
-[8] W. Feller, "An introduction to probability theory and its applications," 1957.
+\begin{thebibliography}{8}
+\bibitem{dai} W. Dai, ``b-money,'' http://www.weidai.com/bmoney.txt, 1998.
+\bibitem{massias} H. Massias, X.S. Avila, and J.-J. Quisquater, ``Design of a secure timestamping service with minimal trust requirements,'' In \textit{20th Symposium on Information Theory in the Benelux}, May 1999.
+\bibitem{haber1} S. Haber, W.S. Stornetta, ``How to time-stamp a digital document,'' In \textit{Journal of Cryptology}, vol 3, no 2, pages 99-111, 1991.
+\bibitem{bayer} D. Bayer, S. Haber, W.S. Stornetta, ``Improving the efficiency and reliability of digital time-stamping,'' In \textit{Sequences II: Methods in Communication, Security and Computer Science}, pages 329-334, 1993.
+\bibitem{haber2} S. Haber, W.S. Stornetta, ``Secure names for bit-strings,'' In \textit{Proceedings of the 4th ACM Conference on Computer and Communications Security}, pages 28-35, April 1997.
+\bibitem{back} A. Back, ``Hashcash - a denial of service counter-measure,'' http://www.hashcash.org/papers/hashcash.pdf, 2002.
+\bibitem{merkle} R.C. Merkle, ``Protocols for public key cryptosystems,'' In \textit{Proc. 1980 Symposium on Security and Privacy}, IEEE Computer Society, pages 122-133, April 1980.
+\bibitem{feller} W. Feller, ``An introduction to probability theory and its applications,'' 1957.
+\end{thebibliography}
 
 \end{document}
