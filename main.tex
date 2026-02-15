@@ -281,76 +281,95 @@
 \section{Възстановяване на дисково пространство}
 След като последната транзакция в дадена монета е скрита под достатъчно блокове, похарчените транзакции преди нея могат да бъдат изхвърлени, за да се спести място на диска. За да се улесни това, без да се нарушава хешът на блока, транзакциите се хешират в дърво на Меркъл [7][2][5], като само коренът е включен в хеша на блока. Старите блокове могат да бъдат компресирани чрез премахване на клони на дървото. Вътрешните хешове не е необходимо да се съхраняват.
 
-% Diagram 1: Transactions Hashed in a Merkle Tree
-\begin{forest}
-	for tree={
-		grow=south,
-		parent anchor=south,
-		child anchor=north,
-		edge={-stealth},
-		s sep=2mm, % Sibling separation
-		l sep=8mm, % Level separation
-		if n children=0{tier=word}{}, % Align leaves
-		align=center
-	}
-	[, container, minimum height=9.5cm, blocklabel, % Outer "Block"
-	[, container, minimum height=3cm, headerlabel, yshift=-5mm, % "Block Header"
-	[Предходен Хеш, headeritem, xshift=-2.5cm, yshift=0mm, no edge]
-	[Нонс, headeritem, xshift=2.5cm, yshift=0mm, no edge]
-	[Коренов Хеш, headeritem, name=roothash1, % This is the actual root for the Merkle tree part
-	[Хеш01, dashedbox
-	[Хеш0, dashedbox
-	[Тр0, solidbox]
-	]
-	[Хеш1, dashedbox
-	[Тр1, solidbox]
-	]
-	]
-	[Хеш23, dashedbox
-	[Хеш2, dashedbox
-	[Тр2, solidbox]
-	]
-	[Хеш3, dashedbox
-	[Тр3, solidbox]
-	]
-	]
-	]
-	]
-	]
-	\node[below=2mm of current bounding box.south] {Транзакции, хеширани в Меркъл Дърво};
-\end{forest}
+\begin{figure}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+	box/.style={draw, minimum width=1.6cm, minimum height=0.7cm, align=center, font=\small},
+	dbox/.style={draw, dashed, minimum width=1.6cm, minimum height=0.7cm, align=center, font=\small},
+	arr/.style={-{Stealth[length=2mm]}},
+	node distance=0.6cm
+]
 
-\hspace{2cm} % Space between the two diagrams
+% === Лява диаграма: Пълно Меркъл дърво ===
 
-% Diagram 2: After Pruning Tx0-2 from the Block
-\begin{forest}
-	for tree={
-		grow=south,
-		parent anchor=south,
-		child anchor=north,
-		edge={-stealth},
-		s sep=2mm, % Sibling separation
-		l sep=8mm, % Level separation
-		if n children=0{tier=word}{}, % Align leaves
-		align=center
-	}
-	[, container, minimum height=9.5cm, blocklabel, % Outer "Block"
-	[, container, minimum height=3cm, headerlabel, yshift=-5mm, % "Block Header"
-	[Предходен Хеш, headeritem, xshift=-2.5cm, yshift=0mm, no edge]
-	[Нонс, headeritem, xshift=2.5cm, yshift=0mm, no edge]
-	[Коренов Хеш, headeritem, name=roothash2, % This is the actual root for the Merkle tree part
-	[Хеш01, solidbox] % Changed to solidbox as per image
-	[Хеш23, dashedbox
-	[Хеш2, solidbox] % Changed to solidbox as per image
-	[Хеш3, dashedbox
-	[Тр3, solidbox]
-	]
-	]
-	]
-	]
-	]
-	\node[below=2mm of current bounding box.south] {След премахване на Тр0-2 от Блока};
-\end{forest}
+% Външен блок
+\node[draw, minimum width=8.6cm, minimum height=8.6cm] (block1) at (0,0) {};
+\node[anchor=north west, font=\small\bfseries] at (block1.north west) {Блок};
+
+% Заглавка на блок
+\node[draw, minimum width=7.8cm, minimum height=2.2cm] (header1) at (0,2.5) {};
+\node[anchor=north, font=\small] at (header1.north) {Заглавка на Блок (Хеш на Блок)};
+
+\node[box] (ph1) at (-1.6, 2.6) {Пред. Хеш};
+\node[box] (n1) at (1.6, 2.6) {Нонс};
+\node[box] (rh1) at (0, 1.8) {Коренов Хеш};
+
+% Меркъл дърво
+\node[dbox] (h01) at (-1.8, 0.3) {Хеш01};
+\node[dbox] (h23) at (1.8, 0.3) {Хеш23};
+
+\node[dbox] (h0) at (-3.0, -1.0) {Хеш0};
+\node[dbox] (h1) at (-1.0, -1.0) {Хеш1};
+\node[dbox] (h2) at (1.0, -1.0) {Хеш2};
+\node[dbox] (h3) at (3.0, -1.0) {Хеш3};
+
+\node[box] (tx0) at (-3.0, -2.3) {Тр0};
+\node[box] (tx1) at (-1.0, -2.3) {Тр1};
+\node[box] (tx2) at (1.0, -2.3) {Тр2};
+\node[box] (tx3) at (3.0, -2.3) {Тр3};
+
+% Стрелки
+\draw[arr] (h01) -- (rh1);
+\draw[arr] (h23) -- (rh1);
+\draw[arr] (h0) -- (h01);
+\draw[arr] (h1) -- (h01);
+\draw[arr] (h2) -- (h23);
+\draw[arr] (h3) -- (h23);
+\draw[arr] (tx0) -- (h0);
+\draw[arr] (tx1) -- (h1);
+\draw[arr] (tx2) -- (h2);
+\draw[arr] (tx3) -- (h3);
+
+\node[font=\small, anchor=north] at (0, -3.5) {Транзакции, хеширани в дърво на Меркъл};
+
+% === Дясна диаграма: След подрязване ===
+
+\def\ox{11}
+
+% Външен блок
+\node[draw, minimum width=8.6cm, minimum height=8.6cm] (block2) at (\ox,0) {};
+\node[anchor=north west, font=\small\bfseries] at (block2.north west) {Блок};
+
+% Заглавка на блок
+\node[draw, minimum width=7.8cm, minimum height=2.2cm] (header2) at (\ox,2.5) {};
+\node[anchor=north, font=\small] at (header2.north) {Заглавка на Блок (Хеш на Блок)};
+
+\node[box] (ph2) at (\ox-1.6, 2.6) {Пред. Хеш};
+\node[box] (n2) at (\ox+1.6, 2.6) {Нонс};
+\node[box] (rh2) at (\ox, 1.8) {Коренов Хеш};
+
+% Подрязано дърво
+\node[box] (h01b) at (\ox-1.8, 0.3) {Хеш01};
+\node[dbox] (h23b) at (\ox+1.8, 0.3) {Хеш23};
+
+\node[box] (h2b) at (\ox+0.6, -1.0) {Хеш2};
+\node[dbox] (h3b) at (\ox+3.0, -1.0) {Хеш3};
+
+\node[box] (tx3b) at (\ox+3.0, -2.3) {Тр3};
+
+% Стрелки
+\draw[arr] (h01b) -- (rh2);
+\draw[arr] (h23b) -- (rh2);
+\draw[arr] (h2b) -- (h23b);
+\draw[arr] (h3b) -- (h23b);
+\draw[arr] (tx3b) -- (h3b);
+
+\node[font=\small, anchor=north] at (\ox, -3.5) {След премахване на Тр0--2 от Блока};
+
+\end{tikzpicture}%
+}
+\end{figure}
 
 По този начин, проверката е надеждна, стига честни възли да контролират мрежата, но е по-уязвима, ако мрежата е преодоляна от атакуващ. Докато мрежовите възли могат сами да проверяват транзакциите, опростеният метод може да бъде заблуден от изфабрикувани транзакции от атакуващия, стига атакуващият да може да продължи да преодолява мрежата. Една стратегия за защита срещу това би била да се приемат сигнали от мрежови възли, когато те открият невалиден блок, което да подкани софтуера на потребителя да изтегли пълния блок и да предупреди транзакциите, за да потвърди несъответствието. Фирмите, които получават чести плащания, вероятно все пак ще искат да управляват свои собствени възли за по-независима сигурност и по-бърза проверка.
 
