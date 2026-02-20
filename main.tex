@@ -120,45 +120,50 @@
 		node distance=0.5cm and 0.5cm,
 		text width=3cm, align=center
 		]
-		
+
 		% Блокове на транзакции
 		\node[box] (t1pub) {Публичен ключ на Собственик 1};
 		\node[box, below=of t1pub] (t1hash) {Хеш};
 		\node[box, below=of t1hash] (t1sig) {Подпис на Собственик 0};
-		
+
 		\node[box, right=3cm of t1pub] (t2pub) {Публичен ключ на Собственик 2};
 		\node[box, below=of t2pub] (t2hash) {Хеш};
 		\node[box, below=of t2hash] (t2sig) {Подпис на Собственик 1};
-		
+
 		\node[box, right=3cm of t2pub] (t3pub) {Публичен ключ на Собственик 3};
 		\node[box, below=of t3pub] (t3hash) {Хеш};
 		\node[box, below=of t3hash] (t3sig) {Подпис на Собственик 2};
-		
+
+		% Рамки "Транзакция" около всяка колона
+		\node[draw, inner sep=0.3cm, fit=(t1pub)(t1hash)(t1sig), label=above:\textbf{Транзакция}] {};
+		\node[draw, inner sep=0.3cm, fit=(t2pub)(t2hash)(t2sig), label=above:\textbf{Транзакция}] {};
+		\node[draw, inner sep=0.3cm, fit=(t3pub)(t3hash)(t3sig), label=above:\textbf{Транзакция}] {};
+
 		% Частни ключове
 		\node[box, below=1.5cm of t1sig] (priv1) {Частен ключ на Собственик 1};
 		\node[box, below=1.5cm of t2sig] (priv2) {Частен ключ на Собственик 2};
 		\node[box, below=1.5cm of t3sig] (priv3) {Частен ключ на Собственик 3};
-		
+
 		% Стрелки за хеширане
 		\draw[arrow] (t1pub) -- (t1hash);
 		\draw[arrow] (t1hash) -- (t1sig);
-		
+
 		\draw[arrow] (t2pub) -- (t2hash);
 		\draw[arrow] (t2hash) -- (t2sig);
-		
+
 		\draw[arrow] (t3pub) -- (t3hash);
 		\draw[arrow] (t3hash) -- (t3sig);
-		
+
 		% Подписване
 		\draw[arrow, dashed] (priv1) -- (t2sig) node[midway, left] {Подпис};
-		
+
 		\draw[arrow, dashed] (priv2) -- (t3sig) node[midway, left] {Подпис};
-		
+
 		% Проверка
 		\draw[arrow, dashed] (t1sig) -- (t2hash) node[midway, right] {Проверка};
-		
+
 		\draw[arrow, dashed] (t2sig) -- (t3hash) node[midway, right] {Проверка};
-		
+
 	\end{tikzpicture}
 \end{center}
 
@@ -171,39 +176,38 @@
 
 \begin{center}
 	\begin{tikzpicture}[
-	    box/.style={draw, minimum width=1.5cm, minimum height=0.8cm, align=center},
-	hash/.style={draw, minimum width=2cm, minimum height=1cm},
-	item/.style={draw, minimum width=1.2cm, minimum height=0.8cm},
-	blocklabel/.style={font=\bfseries, below=0.1cm},
-	arrow/.style={-{Stealth}, thick},
-	node distance=1.2cm and 1cm
+		hash/.style={draw, minimum width=2cm, minimum height=1cm},
+		item/.style={draw, minimum width=1.2cm, minimum height=0.8cm},
+		arrow/.style={-{Stealth}, thick},
+		node distance=0.3cm
 	]
-	
-	% Хешове
-	\node[hash] (hash1) {Хеш};
-	\node[hash, right=4.5cm of hash1] (hash2) {Хеш};
-	
-	% Елементи в блок 1
-	\node[item, below left=1.5cm and 2.4cm of hash1] (item11) {Елемент};
+
+	% === Блок 1 ===
+	% Елементи
+	\node[item] (item11) at (0, 0) {Елемент};
 	\node[item, right=of item11] (item12) {Елемент};
 	\node[item, right=of item12] (item13) {...};
-	\node[box, fit={(item11)(item12)(item13)}, label=blocklabel:Блок] (block1) {};
-	
-	% Елементи в блок 2
-	\node[item, below left=1.5cm and 2.4cm of hash2] (item21) {Елемент};
+	% Рамка на блока
+	\node[draw, inner sep=0.2cm, fit=(item11)(item12)(item13), label=below:\textbf{Блок}] (block1) {};
+	% Хеш
+	\node[hash, above=1.5cm of block1] (hash1) {Хеш};
+
+	% === Блок 2 ===
+	\node[item] (item21) at (8, 0) {Елемент};
 	\node[item, right=of item21] (item22) {Елемент};
 	\node[item, right=of item22] (item23) {...};
-	\node[box, fit={(item21)(item22)(item23)}, label=blocklabel:Блок] (block2) {};
-	
-	% Стрелки към хешовете
+	\node[draw, inner sep=0.2cm, fit=(item21)(item22)(item23), label=below:\textbf{Блок}] (block2) {};
+	\node[hash, above=1.5cm of block2] (hash2) {Хеш};
+
+	% Стрелки от елементи към хешове
 	\draw[arrow] (item11.north) -- ++(0,0.5) -| (hash1.south);
 	\draw[arrow] (item12.north) -- ++(0,0.7) -- (hash1.south);
 	\draw[arrow] (item13.north) -- ++(0,0.5) -| (hash1.south);
-	
+
 	\draw[arrow] (item21.north) -- ++(0,0.5) -| (hash2.south);
 	\draw[arrow] (item22.north) -- ++(0,0.7) -- (hash2.south);
 	\draw[arrow] (item23.north) -- ++(0,0.5) -| (hash2.south);
-	
+
 	% Връзка между хешове
 	\draw[arrow] (hash1.east) -- (hash2.west);
 	\draw[arrow] (hash2.east) -- ++(1.5,0);
@@ -499,11 +503,12 @@
 \node[pbox] (tx1) at (-2, 0.8) {Транзакции};
 \node[pbox] (ttp) at (1.5, 0.8) {Доверена трета страна};
 \node[pbox] (cp1) at (5, 0.8) {Контрагент};
-\node[pbox] (pub1) at (5, -0.2) {Публично};
+\node[pbox] (pub1) at (8, 0.8) {Публично};
 
 \draw[arr] (id1) -- (tx1);
 \draw[arr] (tx1) -- (ttp);
 \draw[arr] (ttp) -- (cp1);
+\draw[arr] (cp1) -- (pub1);
 
 % === Нов модел на поверителност ===
 \node[font=\small\bfseries] at (0, -1.6) {Нов модел на поверителност};
